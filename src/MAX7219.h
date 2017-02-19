@@ -9,7 +9,6 @@
 template<std::size_t N>
 class MAX7219 {
 
-    // TODO add picture of the SPI configuration
     SPI_HandleTypeDef &spi;
     MAX7219_Pin cs;
 
