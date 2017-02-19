@@ -16,17 +16,6 @@ extern "C" void example() {
 
     while (true) {
 
-        // Example of using MAX7219 directly
-//        max.sendDigit(0, 0xAA);
-//        max.sendDigit(2, 0xAA);
-//        max.sendDigit(4, 0xAA);
-//        max.sendDigit(6, 0xAA);
-//
-//        max.sendDigit(1, 0x55);
-//        max.sendDigit(3, 0x55);
-//        max.sendDigit(5, 0x55);
-//        max.sendDigit(7, 0x55);
-
         // Example using MAX7219_MatrixDisplay
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 16; x++) {
