@@ -5,8 +5,8 @@ extern SPI_HandleTypeDef hspi1;
 
 extern "C" void example() {
 
-    MAX7219 max(hspi1, {GPIOA, GPIO_PIN_4});
-    MAX7219_MatrixDisplay display(max);
+    MAX7219<2> max(hspi1, {GPIOA, GPIO_PIN_4});
+    MAX7219_MatrixDisplay<2, 1> display(max);
 
     max.shutdown(false);
     max.intensity(5);
@@ -29,13 +29,13 @@ extern "C" void example() {
 
         // Example using MAX7219_MatrixDisplay
         for (int y = 0; y < 8; y++) {
-            for (int x = 0; x < 8; x++) {
+            for (int x = 0; x < 16; x++) {
                 display.writePixel(x, y, x + y == count);
             }
         }
         display.write();
         count++;
-        count &= 0x0F;
+        count %= 24;
 
         HAL_Delay(50);
     }
