@@ -2,7 +2,8 @@
 Library for driving MAX7219 displays using STM32
 
 ## SPI configuration
-In order o use the library your SPI peripheral has to be configured in the following way.
+In order to use the library your SPI peripheral has to be configured in the following way.
+You can change the prescaler to adjust the baudrate to be within the MAX7219's operating range.
 
 ![spi-config](https://raw.githubusercontent.com/petoknm/MAX7219/master/images/spi-config.png "SPI configuration")
 
