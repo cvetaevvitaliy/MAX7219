@@ -12,9 +12,10 @@ class MAX7219 {
     SPI_HandleTypeDef &spi;
     MAX7219_Pin cs;
 
-    void sendPackets(const std::array<uint16_t, N> &packets) {
+    template<std::size_t Length>
+    void sendPackets(const std::array<uint16_t, Length> &packets) {
         cs.low();
-        HAL_SPI_Transmit(&spi, reinterpret_cast<uint8_t *>(const_cast<uint16_t *>(packets.data())), N, 100);
+        HAL_SPI_Transmit(&spi, reinterpret_cast<uint8_t *>(const_cast<uint16_t *>(packets.data())), Length, 100);
         cs.high();
     }
 
@@ -36,11 +37,11 @@ public:
             : spi(spi), cs(cs) {
     }
 
-    void powerOn(){
+    void powerOn() {
         sendPacket(MAX7219_Register::Shutdown, 1);
     }
 
-    void powerOff(){
+    void powerOff() {
         sendPacket(MAX7219_Register::Shutdown, 0);
     }
 
