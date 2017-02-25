@@ -8,7 +8,7 @@ extern "C" void example() {
     MAX7219<2> max(hspi1, {GPIOA, GPIO_PIN_4});
     MAX7219_MatrixDisplay<2, 1> display(max);
 
-    max.shutdown(false);
+    max.powerOn();
     max.intensity(5);
     max.scanLimit(7);
 

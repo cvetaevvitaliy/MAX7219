@@ -36,12 +36,12 @@ public:
             : spi(spi), cs(cs) {
     }
 
-    void shutdown(bool value) {
-        if (value) {
-            sendPacket(MAX7219_Register::Shutdown, 0);
-        } else {
-            sendPacket(MAX7219_Register::Shutdown, 1);
-        }
+    void powerOn(){
+        sendPacket(MAX7219_Register::Shutdown, 1);
+    }
+
+    void powerOff(){
+        sendPacket(MAX7219_Register::Shutdown, 0);
     }
 
     void intensity(uint8_t value) {
